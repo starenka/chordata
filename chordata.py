@@ -16,6 +16,8 @@ if __name__ == '__main__':
                         action='store_true', help='show chords w/ same shape')
     parser.add_argument('-a', '--all', dest='with_inversions',
                         action='store_true', help='show all chord inversions')
+    parser.add_argument('-f', '--max-fingers', dest='max_fingers',
+                        type=int, help='how many figers maximum you want to use')
     args = parser.parse_args()
 
     STRINGS, CHORDS = get_instrument(args.instrument)
@@ -28,6 +30,9 @@ if __name__ == '__main__':
 
         prev = None
         matches = [(n,p) for n,p in CHORDS if n[:2] in (one, one + '/')]
+
+        if args.max_fingers:
+            matches = [(n,p) for n,p in matches if len(filter(lambda x: x > 0, p)) <= args.max_fingers]
 
         for name, pattern in matches[:(1,-1)[args.with_inversions]]:
             name = '[ ' + name.capitalize() + ' ]'

@@ -1,12 +1,14 @@
 ##Chordata
 
-ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata). Get it, right? Okay, this is a dummy chordbook with a LOT of inversions for mandolin, ukulele and guitar using standard tuning. There's also drop-D for guitar as I grew up playing like that. You can also find a chord name by knowing notes you play.
+ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata) Get it, right? Okay, this is a dummy chordbook with a LOT of inversions for mandolin, ukulele and guitar using standard tuning. There's also drop-D for guitar as I grew up playing like that. You can also find a chord name by knowing notes you play.
 
 ##Features
 
     chordata.py -h
-    usage: chordata.py [-h] [-i {mando,uke,guitar,guitardd}] [-s] [-a]
-                       chords [chords ...]
+
+    usage: chordata [-h] [-i {mando,uke,guitar,guitardd}] [-s] [-a]
+                    [-f MAX_FINGERS]
+                    chords [chords ...]
 
     A dummy chordbook
 
@@ -19,7 +21,8 @@ ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata). Get it
                             instrument/tuning to show
       -s, --same-shapes     show chords w/ same shape
       -a, --all             show all chord inversions
-
+      -f MAX_FINGERS, --max-fingers MAX_FINGERS
+                            how many figers maximum you want to use
 
 
     rchordata.py -h
@@ -166,6 +169,48 @@ ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata). Get it
     A |---|---|---|-O-|---|---|
     D |---|---|-O-|---|---|---|
     G |---|-O-|---|---|---|---|
+
+
+###To lame? Specify how many max fingers you need for a G:
+
+    chordata g --instrument mando --max-fingers 2 --all
+
+    =================[ G ]==================
+        1   2   3   4
+    E |---|---|-O-|---|
+    A |---|-O-|---|---|
+    D |---|---|---|---|
+    G |---|---|---|---|
+
+
+        1   2   3   4   5   6   7   8
+    E |---|---|---|---|---|---|-O-|---|
+    A |---|---|---|---|-O-|---|---|---|
+    D |---|---|---|---|---|---|---|---|
+    G |---|---|---|---|---|---|---|---|
+
+
+        1   2   3   4   5   6   7   8   9   10  11
+    E |---|---|---|---|---|---|-O-|---|---|---|---|
+    A |---|---|---|---|---|---|---|---|---|-O-|---|
+    D |---|---|---|---|---|---|---|---|---|---|---|
+    G |---|---|---|---|---|---|---|---|---|---|---|
+
+
+        1   2   3
+    E X---|---|---|
+    A |---|-O-|---|
+    D |---|---|---|
+    G |---|---|---|
+
+
+
+    ================[ G/d ]=================
+        1   2   3   4
+    E |---|---|-O-|---|
+    A |---|-O-|---|---|
+    D |---|---|---|---|
+    G X---|---|---|---|
 
 
 
