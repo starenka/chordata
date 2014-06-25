@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-import collections
+import collections, importlib
 
-INSTRUMENTS = ('mando', 'uke', 'guitar', 'guitardd')
+INSTRUMENT_CHOICES = ('mando', 'uke', 'guitar', 'guitardd')
 ES_TO_IS = {'db':'c#', 'eb':'d#', 'gb':'f#', 'bb': 'a#'}
 
 def diffs(items): #-1 for X
@@ -32,3 +32,7 @@ def render(pattern, strings, padd=0):
         line = ''.join(line)
         line = ('X' if note < 0 else '|') + line[1:]
         print ' ' * padd + '%s %s|' % (string.upper(), ''.join(line))
+
+def get_instrument(instrument):
+    instrument = importlib.import_module(instrument)
+    return instrument.STRINGS, instrument.CHORDS
