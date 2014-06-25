@@ -3,6 +3,8 @@
 
 import collections, importlib, argparse
 
+ES_TO_IS = {'db':'c#', 'eb':'d#', 'gb':'f#', 'bb': 'a#'}
+
 def diffs(items): #-1 for X
     items = [i for i in items if i > -1]
     return [j-i for i, j in zip(items[:-1], items[1:])]
@@ -48,6 +50,7 @@ if __name__ == '__main__':
 
     for one in args.chords:
         one = one.lower()
+        one = ES_TO_IS.get(one, one)
         prev = None
         matches = [(n,p) for n,p in instrument.CHORDS if n[:2] in (one, one + '/')]
 
