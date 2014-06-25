@@ -1,10 +1,10 @@
 ##Chordata
 
-ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata). Get it, right? Okay, this is a dummy chordbook with a LOT of inversions for mandolin, ukulele and guitar using standard tuning. There's also drop-D for guitar as I grew up playing like that.
+ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata). Get it, right? Okay, this is a dummy chordbook with a LOT of inversions for mandolin, ukulele and guitar using standard tuning. There's also drop-D for guitar as I grew up playing like that. You can also find a chord name by knowing notes you play.
 
 ##Features
 
-    ./chordata.py -h
+    chordata.py -h
     usage: chordata.py [-h] [-i {mando,uke,guitar,guitardd}] [-s] [-a]
                        chords [chords ...]
 
@@ -21,10 +21,27 @@ ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata). Get it
       -a, --all             show all chord inversions
 
 
+
+    rchordata.py -h
+    usage: rchordata [-h] [-i {mando,uke,guitar,guitardd}] notes [notes ...]
+
+    Find chords by giving me notes
+
+    positional arguments:
+      notes                 space separated notes: start from 1st string (E on
+                            guitar). Use "0" for open string and "x" for not
+                            played string.
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -i {mando,uke,guitar,guitardd}, --instrument {mando,uke,guitar,guitardd}
+                            instrument/tuning to search
+
+
 ###To get just some chords you need quick:
 
 
-    ./chordata.py c f g
+    chordata.py c f g
 
     =================[ C ]==================
         1   2   3   4   5   6
@@ -56,7 +73,7 @@ ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata). Get it
 ###In case you need to see all the inversions:
 
 
-    ./chordata.py c --all --instrument uke
+    chordata.py c --all --instrument uke
 
     =================[ C ]==================
         2   3   4   5   6
@@ -88,7 +105,7 @@ ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata). Get it
 *Does not always mean same strings. Also considers chords with open strings and barre equal.
 
 
-    ./chordata.py g7 --same-shape --instrument mando
+    chordata.py g7 --same-shape --instrument mando
 
     =================[ G7 ]=================
         1   2   3
@@ -123,6 +140,33 @@ ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata). Get it
               G |---|-O-|---|---|---|
 
               ... (more) ...
+
+
+###Know a pattern, but have no idea what chord is it?
+
+    rchordata.py 1 2 3 4 --instrument mando
+
+    ==============[ Caug/g# ]===============
+        0   1   2   3   4   5
+    E |---|---|---|---|-O-|---|
+    A |---|---|---|-O-|---|---|
+    D |---|---|-O-|---|---|---|
+    G |---|-O-|---|---|---|---|
+
+    ==============[ Eaug/g# ]===============
+        0   1   2   3   4   5
+    E |---|---|---|---|-O-|---|
+    A |---|---|---|-O-|---|---|
+    D |---|---|-O-|---|---|---|
+    G |---|-O-|---|---|---|---|
+
+    ===============[ G#aug ]================
+        0   1   2   3   4   5
+    E |---|---|---|---|-O-|---|
+    A |---|---|---|-O-|---|---|
+    D |---|---|-O-|---|---|---|
+    G |---|-O-|---|---|---|---|
+
 
 
 ##PLANNED FEATURES
