@@ -1,43 +1,16 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-import collections, importlib, argparse
+import importlib, argparse
 
-ES_TO_IS = {'db':'c#', 'eb':'d#', 'gb':'f#', 'bb': 'a#'}
-
-def diffs(items): #-1 for X
-    items = [i for i in items if i > -1]
-    return [j-i for i, j in zip(items[:-1], items[1:])]
-
-def shape_to_diff_id(pattern):
-    return ''.join(map(str, diffs(pattern)))
-
-def build_diff_dict(chords):
-    diff = collections.defaultdict(list)
-    for chord, pattern in chords:
-        diff[shape_to_diff_id(pattern)].append((chord, pattern))
-    return diff
-
-def with_same_pattern(pattern, by_diff):
-    return filter(lambda x: x[1]!=pattern, by_diff.get(shape_to_diff_id(pattern)))
-
-def render(pattern, strings, padd=0):
-    bar = '|-%s-'
-    min_, max_ = min(pattern), max(pattern)+1
-    bars = range(min_-1 if min_ > 0 else 1, max_+1)
-    print ' ' * padd + ' ' * 3, ' '.join([str(i).ljust(3, ' ') for i in bars])
-    for string, note in zip(reversed(strings), reversed(pattern)):
-        line = [bar % 'O' if note == i else bar % '-' for i in bars]
-        line = ''.join(line)
-        line = ('X' if note < 0 else '|') + line[1:]
-        print ' ' * padd + '%s %s|' % (string.upper(), ''.join(line))
+from utils import render, build_diff_dict, with_same_pattern, INSTRUMENTS, ES_TO_IS
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='A dummy chordbook')
     parser.add_argument('chords', nargs='+')
     parser.add_argument('-i', '--instrument', dest='instrument',
-                        choices=('mando', 'uke', 'guitar', 'guitardd'),
-                        default='mando', help='instrument/tuning to show')
+                        choices=INSTRUMENTS, default='mando',
+                        help='instrument/tuning to show')
     parser.add_argument('-s', '--same-shapes', dest='same_shapes',
                         action='store_true', help='show chords w/ same shape')
     parser.add_argument('-a', '--all', dest='with_inversions',
@@ -51,6 +24,7 @@ if __name__ == '__main__':
     for one in args.chords:
         one = one.lower()
         one = ES_TO_IS.get(one, one)
+
         prev = None
         matches = [(n,p) for n,p in instrument.CHORDS if n[:2] in (one, one + '/')]
 
