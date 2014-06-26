@@ -4,7 +4,7 @@
 import argparse
 
 from utils import (render, build_diff_dict, with_same_pattern, get_instrument,
-                   INSTRUMENT_CHOICES, ES_TO_IS)
+                   INSTRUMENT_CHOICES, FLATS_TO_SHARPS)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='A dummy chordbook')
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     for one in args.chords:
         one = one.lower()
-        one = ES_TO_IS.get(one, one)
+        one = FLATS_TO_SHARPS.get(one, one)
 
         prev = None
         matches = [(n,p) for n,p in CHORDS if n[:2] in (one, one + '/')]

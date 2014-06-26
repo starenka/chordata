@@ -4,7 +4,7 @@
 import collections, importlib
 
 INSTRUMENT_CHOICES = ('mando', 'uke', 'guitar', 'guitardd')
-ES_TO_IS = {'db':'c#', 'eb':'d#', 'gb':'f#', 'bb': 'a#'}
+FLATS_TO_SHARPS = {'db':'c#', 'eb':'d#', 'gb':'f#', 'bb': 'a#'}
 
 def diffs(items): #-1 for X
     items = [i for i in items if i > -1]
