@@ -18,7 +18,7 @@ if __name__ == '__main__':
     by_diff = build_diff_dict(CHORDS)
 
     if len(args.notes) != len(STRINGS):
-        raise ValueError('You have provided less or more notes. %s has %d strings' %
+        raise ValueError('You have provided less or more notes. %s has %d strings.' %
                          (args.instrument.capitalize(), len(STRINGS)))
 
     notes = tuple(map(lambda x: int(x) if x!= 'x' else -1, args.notes))
