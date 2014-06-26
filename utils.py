@@ -31,7 +31,7 @@ def render(pattern, strings, padd=0):
         line = [bar % 'O' if note == i else bar % '-' for i in bars]
         line = ''.join(line)
         line = ('X' if note < 0 else '|') + line[1:]
-        print ' ' * padd + '%s %s|' % (string.upper(), ''.join(line))
+        print ' ' * padd + '%s %s|' % (string, ''.join(line))
 
 def get_instrument(instrument):
     instrument = importlib.import_module(instrument)

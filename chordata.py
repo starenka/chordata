@@ -29,13 +29,13 @@ if __name__ == '__main__':
         one = FLATS_TO_SHARPS.get(one, one)
 
         prev = None
-        matches = [(n,p) for n,p in CHORDS if n[:2] in (one, one + '/')]
+        matches = [(n,p) for n,p in CHORDS if n[:2].lower() in (one, one + '/')]
 
         if args.max_fingers:
             matches = [(n,p) for n,p in matches if len(filter(lambda x: x > 0, p)) <= args.max_fingers]
 
         for name, pattern in matches[:(1,-1)[args.with_inversions]]:
-            name = '[ ' + name.capitalize() + ' ]'
+            name = '[ ' + name + ' ]'
             if name != prev:
                 print '\n', name.center(40, '=')
 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
                 if shapes:
                     print '\n', ' ' * padd, 'w/ same shape:\n'
                 for sname, spattern in shapes:
-                    sname = '[ ' + sname.capitalize() + ' ]'
+                    sname = '[ ' + sname + ' ]'
                     print ' ' * padd, sname.center(30, '~')
                     render(spattern, STRINGS, padd)
                     print '\n'
