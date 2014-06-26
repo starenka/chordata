@@ -20,9 +20,9 @@ if __name__ == '__main__':
                         type=int, help='how many figers maximum you want to use')
     args = parser.parse_args()
 
+    PADD = 10
     STRINGS, CHORDS = get_instrument(args.instrument)
     by_diff = build_diff_dict(CHORDS)
-    padd = 10
 
     for one in args.chords:
         one = one.lower()
@@ -44,11 +44,11 @@ if __name__ == '__main__':
             if args.same_shapes:
                 shapes = with_same_pattern(pattern, by_diff)
                 if shapes:
-                    print '\n', ' ' * padd, 'w/ same shape:\n'
+                    print '\n', ' ' * PADD, 'w/ same shape:\n'
                 for sname, spattern in shapes:
                     sname = '[ ' + sname + ' ]'
-                    print ' ' * padd, sname.center(30, '~')
-                    render(spattern, STRINGS, padd)
+                    print ' ' * PADD, sname.center(30, '~')
+                    render(spattern, STRINGS, PADD)
                     print '\n'
 
             prev = name
