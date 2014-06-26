@@ -27,7 +27,7 @@ def render(pattern, strings, padd=0):
     BAR = '|-%s-'
 
     min_, max_ = min(pattern), max(pattern)+1
-    bars = range(min_-1 if min_ > 0 else 1, max_+1)
+    bars = range(min_-1 if min_ > 1 else 1, max_+1)
     print ' ' * padd + ' ' * 3, ' '.join([str(i).ljust(3, ' ') for i in bars])
     for string, note in zip(reversed(strings), reversed(pattern)):
         muted = note < 0
