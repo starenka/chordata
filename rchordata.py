@@ -22,8 +22,8 @@ if __name__ == '__main__':
                          (args.instrument.capitalize(), len(STRINGS)))
 
     notes = tuple(map(lambda x: int(x) if x!= 'x' else -1, args.notes))
-    for name, pattern in CHORDS:
-        if notes == pattern:
-            name = '[ ' + name.capitalize() + ' ]'
-            print '\n', name.center(40, '=')
-            render(pattern, STRINGS)
+    matches = [name for name, patt in CHORDS if notes == patt]
+
+    if matches:
+        render(notes, STRINGS)
+        print '\nIs known as: %s\n' % ', '.join(matches)
