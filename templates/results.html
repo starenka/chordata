@@ -9,30 +9,33 @@
 
 {% block form %}{% endblock %}
 
+<div class="results">
+
 {% if matches %}
-  <div class="results">
-    {% for name, pattern, same_pattern in matches %}
-      <span id="c{{ loop.index0 }}w" class="result_wrapper">
-        <canvas id="c{{ loop.index0 }}"></canvas>
+  {% for name, pattern, same_pattern in matches %}
+  <span id="c{{ loop.index0 }}w" class="result_wrapper">
+    <canvas id="c{{ loop.index0 }}"></canvas>
 
-        {% if same_pattern %}
-          <br/><a href="#" class="with_same_pattern"><small>w/ same pattern ({{ same_pattern|length }})</small></a>
-          <div class="same_pattern">
-            <h3>with same pattern as <strong>{{ name }}</strong></h3>
+    {% if same_pattern %}
+      <br/><a href="#" class="with_same_pattern"><small>w/ same pattern ({{ same_pattern|length }})</small></a>
+      <div class="same_pattern">
+        <h3>with same pattern as <strong>{{ name }}</strong></h3>
 
-            {% set ploop = loop %}
-            {% for name, pattern in same_pattern %}
-              <canvas id="cs{{ loop.index0 }}c{{ ploop.index0 }}"></canvas>
-            {% endfor %}
-          </div>
-        {% else %}
-          <br/>&nbsp;
-        {% endif %}
-      </span>
-    {% endfor %}
-  </div>
+        {% set ploop = loop %}
+        {% for name, pattern in same_pattern %}
+          <canvas id="cs{{ loop.index0 }}c{{ ploop.index0 }}"></canvas>
+        {% endfor %}
+      </div>
+    {% else %}
+      <br/>&nbsp;
+    {% endif %}
+  </span>
+  {% endfor %}
+
 {% else %}
-  <p>:(</p>
+  <p>Nothing found, really.</p>
 {% endif %}
+
+</div>
 
 {% endblock %}
