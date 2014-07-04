@@ -7,7 +7,7 @@ INSTRUMENT_CHOICES = collections.OrderedDict((
     ('mando','mandolin'),
     ('uke','ukulele'),
     ('guitar','guitar'),
-    ('guitardd','guitar drop-d')))
+    ('guitardd','guitar (drop d)')))
 FLATS_TO_SHARPS = {'db':'c#', 'eb':'d#', 'gb':'f#', 'bb': 'a#'}
 
 def diffs(items): #-1 for X
