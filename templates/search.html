@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <p>
+    Find a chord you need by writing it's name and choosing instrument you play. You can also specify number of fingers
+    you want to use (maximum). If the found chord has a pattern common to other chords, you can check such chords upon
+    clicking the link above the tab.
+
+    <p>
+      Supported chords:
+        <kbd>X</kbd>
+        <kbd>X11</kbd>
+        <kbd>X11dim9</kbd>
+        <kbd>X13</kbd>
+        <kbd>X13dim11</kbd>
+        <kbd>X13dim9</kbd>
+        <kbd>X5</kbd>
+        <kbd>X6</kbd>
+        <kbd>X6_S9</kbd>
+        <kbd>X6aug5</kbd>
+        <kbd>X6dim5</kbd>
+        <kbd>X7</kbd>
+        <kbd>X7#5</kbd>
+        <kbd>X7#9</kbd>
+        <kbd>X75</kbd>
+        <kbd>X7+9</kbd>
+        <kbd>X7-5</kbd>
+        <kbd>X7-9</kbd>
+        <kbd>X7aug</kbd>
+        <kbd>X7aug5</kbd>
+        <kbd>X7b5</kbd>
+        <kbd>X7b9</kbd>
+        <kbd>X7dim5</kbd>
+        <kbd>X7dim9</kbd>
+        <kbd>X7sus</kbd>
+        <kbd>X7sus2</kbd>
+        <kbd>X7sus4</kbd>
+        <kbd>X9</kbd>
+        <kbd>X9aug5</kbd>
+        <kbd>X9dim5</kbd>
+        <kbd>X9sus</kbd>
+        <kbd>X9sus4</kbd>
+        <kbd>Xadd2</kbd>
+        <kbd>Xadd4</kbd>
+        <kbd>Xadd9</kbd>
+        <kbd>Xaug</kbd>
+        <kbd>Xdim</kbd>
+        <kbd>Xdim11</kbd>
+        <kbd>Xdim13</kbd>
+        <kbd>Xdim7</kbd>
+        <kbd>Xdim9</kbd>
+        <kbd>Xm</kbd>
+        <kbd>Xm11</kbd>
+        <kbd>Xm11dim9</kbd>
+        <kbd>Xm13</kbd>
+        <kbd>Xm13dim11</kbd>
+        <kbd>Xm13dim9</kbd>
+        <kbd>Xm6</kbd>
+        <kbd>Xm7</kbd>
+        <kbd>Xm7b5</kbd>
+        <kbd>Xm7dim5</kbd>
+        <kbd>Xm7dim9</kbd>
+        <kbd>Xm9</kbd>
+        <kbd>Xmaj11</kbd>
+        <kbd>Xmaj13</kbd>
+        <kbd>Xmaj7</kbd>
+        <kbd>Xmaj9</kbd>
+        <kbd>Xmb5</kbd>
+        <kbd>Xmdim11</kbd>
+        <kbd>Xmdim13</kbd>
+        <kbd>Xmdim9</kbd>
+        <kbd>Xmmaj7</kbd>
+        <kbd>Xsus</kbd>
+        <kbd>Xsus2</kbd>
+        <kbd>Xsus4</kbd>
+    </p>
+  </p>
+
+  {% include '_search.html' %}
+
+{% endblock %}

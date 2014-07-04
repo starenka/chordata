@@ -1,6 +1,6 @@
 <div class="well">
     <form action="/search" method="get">
-        <label>Find me</label>&nbsp;<input name="chord" value="{{ query|e }}" placeholder="g6">
+        <label>Find me</label>&nbsp;<input name="chord" value="{{ query|e }}" placeholder="G7">
         &nbsp;<label>on</label>&nbsp;<select name="instrument">
           {% for k,v in instruments.iteritems() %}
             <option value="{{ k }}" {% if k == instrument %}selected="selected"{% endif %}>{{ v }}</option><

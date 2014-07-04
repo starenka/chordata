@@ -13,8 +13,8 @@ STATIC_DIR = './static'
 
 
 @get('/')
-def home():
-    return template('home.html', title='Chord search', instruments=INSTRUMENT_CHOICES)
+def search():
+    return template('search.html', title='Chord search', instruments=INSTRUMENT_CHOICES)
 
 @get('/reverse')
 def reverse():
