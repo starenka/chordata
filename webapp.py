@@ -51,7 +51,7 @@ def rsearch():
     STRINGS, CHORDS = get_instrument(instrument)
     by_diff = build_diff_dict(CHORDS)
 
-    notes = tuple(map(lambda x: int(x) if x!= 'x' else -1, pattern.split()))
+    notes = tuple(map(lambda x: int(x) if x not in 'xX' else -1, pattern.split()))
 
     matches = []
     if len(notes) == len(STRINGS):
