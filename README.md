@@ -210,5 +210,6 @@ or a CLI interface:
 
 ##PLANNED FEATURES
 
-- betteru web UI
-- transpositions, progressions?
+- chord notes
+- transpositions, progressions
+- MIDI?
