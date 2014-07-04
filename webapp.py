@@ -52,13 +52,11 @@ def rsearch():
     by_diff = build_diff_dict(CHORDS)
 
     notes = tuple(map(lambda x: int(x) if x!= 'x' else -1, pattern))
+    matches = []
 
-    if len(notes) != len(STRINGS):
-        raise ValueError('You have provided less or more notes. %s has %d strings.' %
-                         (instrument, len(STRINGS)))
-
-    matches = [(name, patt) for name, patt in CHORDS if notes == patt]
-    matches = [(n,p,with_same_pattern(p, by_diff)) for n,p in matches]
+    if len(notes) == len(STRINGS):
+        matches = [(name, patt) for name, patt in CHORDS if notes == patt]
+        matches = [(n,p,with_same_pattern(p, by_diff)) for n,p in matches]
 
     return template('rresults.html', title='Reverse search',
                     instrument=instrument, instruments=INSTRUMENT_CHOICES,
