@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }} - chordata</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <link href="/static/base.css" rel="stylesheet">
+  <script>
+  {% block inline_js %}{% endblock %}
+  </script>
+  <script src="/static/jquery-2.1.1.min.js"></script>
+  <script src="/static/chordata.js"></script>
+  </head>
+  <body>
+    <ul class="nav nav-tabs">
+      <li><a href="/">search</a></li>
+      <li><a href="/reverse">reverse search</a></li>
+    </ul>
+    <div id="main" class="">
+      <div class="page-header">
+        <h1>{{ title }}</h1>
+      </div>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

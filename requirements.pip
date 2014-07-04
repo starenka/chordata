@@ -1,0 +1,4 @@
+bottle==0.12.7
+uwsgi==1.9.18.2
+jinja2==2.7.3
+werkzeug

@@ -1,0 +1,9 @@
+*.elc
+*.pyc
+.emacs.desktop*
+.projectile
+*.*~
+\#*.*\#
+.hg
+.hgignore
+tramp
