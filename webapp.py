@@ -22,7 +22,7 @@ def reverse():
 
 @get('/search')
 def search():
-    instrument, chord = request.query.get('instrument'), request.query.get('chord')
+    instrument, chord = request.query.get('instrument'), request.query.get('chord').strip()
     max_fingers = request.query.get('max_fingers', None)
 
     nchord = chord.lower()
@@ -46,7 +46,7 @@ def search():
 
 @get('/rsearch')
 def rsearch():
-    instrument, pattern = request.query.get('instrument'), request.query.get('pattern','')
+    instrument, pattern = request.query.get('instrument'), request.query.get('pattern','').strip()
 
     STRINGS, CHORDS = get_instrument(instrument)
     by_diff = build_diff_dict(CHORDS)
