@@ -20,6 +20,10 @@ def search():
 def reverse():
     return template('rsearch.html', title='Reverse search', instruments=INSTRUMENT_CHOICES)
 
+@get('/links')
+def links():
+    return template('links.html', title='Useful links')
+
 @get('/search')
 def search():
     instrument, chord = request.query.get('instrument'), request.query.get('chord').strip()
