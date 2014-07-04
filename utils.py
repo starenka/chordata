@@ -3,7 +3,11 @@
 
 import collections, importlib
 
-INSTRUMENT_CHOICES = ('mando', 'uke', 'guitar', 'guitardd')
+INSTRUMENT_CHOICES = collections.OrderedDict((
+    ('mando','mandolin'),
+    ('uke','ukulele'),
+    ('guitar','guitar'),
+    ('guitardd','guitar drop-d')))
 FLATS_TO_SHARPS = {'db':'c#', 'eb':'d#', 'gb':'f#', 'bb': 'a#'}
 
 def diffs(items): #-1 for X
@@ -20,7 +24,8 @@ def build_diff_dict(chords):
     return diff
 
 def with_same_pattern(pattern, by_diff):
-    return filter(lambda x: x[1]!=pattern, by_diff.get(shape_to_diff_id(pattern)))
+    ret = filter(lambda x: x[1]!=pattern, by_diff.get(shape_to_diff_id(pattern)))
+    return ret or []
 
 def render(pattern, strings, padd=0):
     DIM, DIM_RESET = '\033[2m', '\033[22m'

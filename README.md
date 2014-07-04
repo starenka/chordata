@@ -4,6 +4,13 @@ ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata) Get it,
 
 ##Features
 
+You can user either a simple [webapp](http://chords.starenka.net)
+
+![webapp](/webapp.png?raw=true "chordata")
+
+or a CLI interface:
+
+
     chordata.py -h
 
     usage: chordata [-h] [-i {mando,uke,guitar,guitardd}] [-s] [-a]
@@ -203,6 +210,5 @@ ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata) Get it,
 
 ##PLANNED FEATURES
 
-- better search
-- nicer rendering (images?)
-- web interface?
+- betteru web UI
+- transpositions, progressions?

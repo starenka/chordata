@@ -10,7 +10,7 @@ if __name__ == '__main__':
     parser.add_argument('notes', nargs='+',
                         help='space separated notes: start from 1st string (E on guitar). Use "0" for open string and "x" for not played string.')
     parser.add_argument('-i', '--instrument', dest='instrument',
-                        choices=INSTRUMENT_CHOICES, default='mando',
+                        choices=INSTRUMENT_CHOICES.keys(), default='mando',
                         help='instrument/tuning to search')
     args = parser.parse_args()
 

@@ -10,7 +10,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='A dummy chordbook')
     parser.add_argument('chords', nargs='+')
     parser.add_argument('-i', '--instrument', dest='instrument',
-                        choices=INSTRUMENT_CHOICES, default='mando',
+                        choices=INSTRUMENT_CHOICES.keys(), default='mando',
                         help='instrument/tuning to show')
     parser.add_argument('-s', '--same-shapes', dest='same_shapes',
                         action='store_true', help='show chords w/ same shape')
@@ -29,7 +29,7 @@ if __name__ == '__main__':
         one = FLATS_TO_SHARPS.get(one, one)
 
         prev = None
-        matches = [(n,p) for n,p in CHORDS if n[:2].lower() in (one, one + '/')]
+        matches = [(n,p) for n,p in CHORDS if any([n.lower()==one, n[:len(one)+1].lower()==one+'/'])]
 
         if args.max_fingers:
             matches = [(n,p) for n,p in matches if len(filter(lambda x: x > 0, p)) <= args.max_fingers]
