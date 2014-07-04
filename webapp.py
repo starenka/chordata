@@ -38,7 +38,7 @@ def search():
     matches = [(n,p,with_same_pattern(p, by_diff)) for n,p in matches]
 
     return template('sresults.html', title='Chord search',
-                    instrument=instrument,  instruments=INSTRUMENT_CHOICES,
+                    instrument=instrument, instruments=INSTRUMENT_CHOICES,
                     query=chord, max_fingers=max_fingers,
                     matches_json=json.dumps(matches), matches=matches,
                     strings_json=json.dumps(STRINGS)
@@ -46,14 +46,14 @@ def search():
 
 @get('/rsearch')
 def rsearch():
-    instrument, pattern = request.query.get('instrument'), request.query.get('pattern','').split()
+    instrument, pattern = request.query.get('instrument'), request.query.get('pattern','')
 
     STRINGS, CHORDS = get_instrument(instrument)
     by_diff = build_diff_dict(CHORDS)
 
-    notes = tuple(map(lambda x: int(x) if x!= 'x' else -1, pattern))
-    matches = []
+    notes = tuple(map(lambda x: int(x) if x!= 'x' else -1, pattern.split()))
 
+    matches = []
     if len(notes) == len(STRINGS):
         matches = [(name, patt) for name, patt in CHORDS if notes == patt]
         matches = [(n,p,with_same_pattern(p, by_diff)) for n,p in matches]
