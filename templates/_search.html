@@ -6,7 +6,7 @@
             <option value="{{ k }}" {% if k == instrument %}selected="selected"{% endif %}>{{ v }}</option><
           {% endfor %}
         </select>
-        <label>using max.&nbsp;</label> <input name="max_fingers" type="number" max="5" min="0" value="{{ max_fingers|e }}" >&nbsp;fingers
+        <label>using max.&nbsp;</label> <input name="max_fingers" type="number" max="5" min="0" value="{{ max_fingers|e }}" placeholder="5">&nbsp;fingers
         <button type="submit" class="btn btn-primary">Okay?</button>
     </form>
 </div>
