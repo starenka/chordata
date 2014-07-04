@@ -1,3 +1,12 @@
 {% extends 'base.html' %}
 
-{% block content %}{% include '_rsearch.html' %}{% endblock %}
+{% block content %}
+  <p>
+    You can (hopefully) find a chord name by specifing a pattern you play. Write fret numbers separated by space or comma
+    starting from the lowest (top, first) string. Use <kbd>0</kbd> for open strings and <kbd>x</kbd> or <kbd>X</kbd> for
+    muted strings.
+  </p>
+
+  {% include '_rsearch.html' %}
+
+{% endblock %}
