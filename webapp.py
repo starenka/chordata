@@ -20,9 +20,9 @@ def search():
 def reverse():
     return template('rsearch.html', title='Reverse search', instruments=INSTRUMENT_CHOICES)
 
-@get('/links')
+@get('/theory')
 def links():
-    return template('links.html', title='Useful links')
+    return template('theory.html', title='Chord theory')
 
 @get('/search')
 def search():
