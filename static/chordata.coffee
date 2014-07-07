@@ -13,7 +13,7 @@ class Chordata
         @PAD_TOP = 17
         @BAR_WIDTH = 30
         @COLOR_STRING = 'black'
-        @COLOR_MSTRING = 'lightgrey'
+        @COLOR_MSTRING = '#FFA62F'
         @COLOR_BAR = 'darkgrey'
         @COLOR_INLAY = '#E8E8E8'
 
@@ -75,7 +75,7 @@ class Chordata
 
             #string names
             @context.fillStyle = color
-            @context.fillText(string, @PAD_LEFT/2, @PAD_TOP*(i+1)+2)
+            @context.fillText((if muted then 'X' else string), @PAD_LEFT/2, @PAD_TOP*(i+1)+2)
 
             #fingers
             if one > 0

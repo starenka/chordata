@@ -38,7 +38,7 @@
       this.PAD_TOP = 17;
       this.BAR_WIDTH = 30;
       this.COLOR_STRING = 'black';
-      this.COLOR_MSTRING = 'lightgrey';
+      this.COLOR_MSTRING = '#FFA62F';
       this.COLOR_BAR = 'darkgrey';
       this.COLOR_INLAY = '#E8E8E8';
     }
@@ -114,7 +114,7 @@
         color = muted ? this.COLOR_MSTRING : this.COLOR_STRING;
         this.line(start = [this.PAD_LEFT, this.PAD_TOP * (i + 1)], end = [(bars.length + 1) * this.BAR_WIDTH, this.PAD_TOP * (i + 1)], color = color);
         this.context.fillStyle = color;
-        this.context.fillText(string, this.PAD_LEFT / 2, this.PAD_TOP * (i + 1) + 2);
+        this.context.fillText((muted ? 'X' : string), this.PAD_LEFT / 2, this.PAD_TOP * (i + 1) + 2);
         if (one > 0) {
           this.circle((this.PAD_LEFT - this.BAR_WIDTH / 2) + this.BAR_WIDTH * (one - bars[0] + 1), this.PAD_TOP * (i + 1), 5.5);
         }
@@ -156,5 +156,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=chordata.map
