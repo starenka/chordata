@@ -4,7 +4,7 @@ ChorData. Beasts [with strings.] (http://es.wikipedia.org/wiki/Chordata) Get it,
 
 ##Features
 
-You can user either a simple [webapp](http://chords.starenka.net)
+You can user either a simple [webapp](http://chords.starenka.net/search?chord=C&instrument=mando&max_fingers=)
 
 ![webapp](/webapp.png?raw=true "chordata")
 
