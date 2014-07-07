@@ -75,12 +75,12 @@
 
 <div class="well">
     <form action="/search" method="get">
-        <label>Find me</label>&nbsp;<input name="chord" value="{{ query|e }}" placeholder="G7">
+        <label>Find me</label>&nbsp;<input name="chord" value="{{ query|e }}" placeholder="some chord">
         &nbsp;<label>on</label>&nbsp;<select name="instrument">
           {% for k,v in instruments.iteritems() %}
             <option value="{{ k }}" {% if k == instrument %}selected="selected"{% endif %}>{{ v }}</option><
           {% endfor %}
-        </select>
+        </select>&nbsp;
         <label>using max.&nbsp;</label> <input name="max_fingers" type="number" max="5" min="0" value="{{ max_fingers|e }}" placeholder="5">&nbsp;fingers
         <button type="submit" class="btn btn-primary">Okay?</button>
     </form>
