@@ -99,7 +99,7 @@
         this.line(start = [this.PAD_LEFT + (i * this.BAR_WIDTH), this.PAD_TOP], end = [this.PAD_LEFT + (i * this.BAR_WIDTH), this.PAD_TOP * strings.length], color = this.COLOR_BAR);
         this.context.fillStyle = this.COLOR_STRING;
         this.context.fillText(b, this.PAD_LEFT - this.BAR_WIDTH / 1.5 + this.BAR_WIDTH * (i + 1), this.PAD_TOP - this.PAD_TOP / 2);
-        if (b === 3 || b === 5 || b === 7 || b === 9 || b === 12 || b === 15 || b === 17 || b === 19 || b === 21 || b === 24) {
+        if (b === 3 || b === 5 || b === 7 || b === 10 || b === 12 || b === 15 || b === 17 || b === 19 || b === 21 || b === 24) {
           this.circle((this.PAD_LEFT - this.BAR_WIDTH / 2) + this.BAR_WIDTH * (b - bars[0] + 1), this.PAD_TOP * strings.length / 2 + this.PAD_TOP / 2, radius = 3.5, fill = this.COLOR_INLAY);
         }
       }

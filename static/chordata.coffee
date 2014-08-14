@@ -57,7 +57,7 @@ class Chordata
             @context.fillStyle = @COLOR_STRING
             @context.fillText(b, @PAD_LEFT-@BAR_WIDTH/1.5+@BAR_WIDTH*(i+1), @PAD_TOP-@PAD_TOP/2)
 
-            if b in [3,5,7,9,12,15,17,19,21,24]
+            if b in [3,5,7,10,12,15,17,19,21,24]
                 @circle((@PAD_LEFT-@BAR_WIDTH/2)+@BAR_WIDTH*(b-bars[0]+1),
                         @PAD_TOP*strings.length/2+@PAD_TOP/2,
                         radius=3.5, fill=@COLOR_INLAY)
