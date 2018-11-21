@@ -29,12 +29,12 @@ if __name__ == '__main__':
         one = normalize_chord(one.lower())
 
         prev = None
-        matches = [(n,p) for n,p in CHORDS if any([n.lower()==one, n[:len(one)+1].lower()==one+'/'])]
+        matches = [(n, p) for n, p in CHORDS if any([n.lower() == one, n[:len(one)+1].lower() == one+'/'])]
 
         if args.max_fingers:
-            matches = [(n,p) for n,p in matches if len(tuple(filter(lambda x: x > 0, p))) <= args.max_fingers]
+            matches = [(n, p) for n, p in matches if len(tuple(filter(lambda x: x > 0, p))) <= args.max_fingers]
 
-        for name, pattern in matches[:(1,-1)[args.with_inversions]]:
+        for name, pattern in matches[:(1, -1)[args.with_inversions]]:
             name = '[ ' + name + ' ]'
             if name != prev:
                 print('\n', name.center(40, '='))

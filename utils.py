@@ -2,14 +2,15 @@
 # coding=utf-8
 
 from __future__ import print_function
-import collections, importlib
+import collections
+import importlib
 import re
 
 INSTRUMENT_CHOICES = collections.OrderedDict((
-    ('uke','ukulele'),
-    ('guitar','guitar'),
-    ('guitardd','guitar (drop d)'),
-    ('mando','mandolin')
+    ('uke', 'ukulele'),
+    ('guitar', 'guitar'),
+    ('guitardd', 'guitar (drop d)'),
+    ('mando', 'mandolin')
 ))
 FLATS_TO_SHARPS = {
     'cb': 'b',
@@ -39,7 +40,7 @@ def build_diff_dict(chords):
 
 
 def with_same_pattern(pattern, by_diff):
-    ret = list(filter(lambda x: x[1]!=pattern, by_diff.get(shape_to_diff_id(pattern))))
+    ret = list(filter(lambda x: x[1] != pattern, by_diff.get(shape_to_diff_id(pattern))))
     return ret or []
 
 
@@ -55,8 +56,8 @@ def render(pattern, strings, padd=0):
         line = [BAR % 'O' if note == i else BAR % '-' for i in bars]
         line = ''.join(line)
         line = ('X' if muted else '|') + line[1:]
-        print(' ' * padd + '%s%s %s|%s' % (('',DIM)[muted], string,
-                                           ''.join(line), ('',DIM_RESET)[muted]))
+        print(' ' * padd + '%s%s %s|%s' % (('', DIM)[muted], string,
+                                           ''.join(line), ('', DIM_RESET)[muted]))
 
 
 def get_instrument(instrument):
