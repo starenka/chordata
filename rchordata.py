@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+from __future__ import print_function
 import argparse
 
 from utils import render, build_diff_dict, get_instrument, INSTRUMENT_CHOICES
@@ -26,4 +27,4 @@ if __name__ == '__main__':
 
     if matches:
         render(notes, STRINGS)
-        print '\nIs known as: %s\n' % ', '.join(matches)
+        print('\nIs known as: %s\n' % ', '.join(matches))

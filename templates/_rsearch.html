@@ -7,7 +7,7 @@
     <form action="/rsearch" method="get">
         <label>I play this</label>&nbsp;<input name="pattern" placeholder="0 3 3 x" value="{{ query|e }}">&nbsp;
         <label>on</label>&nbsp;<select name="instrument">
-          {% for k,v in instruments.iteritems() %}
+          {% for k,v in instruments.items() %}
             <option value="{{ k }}" {% if k == instrument %}selected="selected"{% endif %}>{{ v }}</option>
           {% endfor %}
         </select>

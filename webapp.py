@@ -3,7 +3,7 @@
 import json
 
 from bottle import (get, request, run, route, default_app, app, static_file,
-            TEMPLATE_PATH, jinja2_template as template)
+                    TEMPLATE_PATH, jinja2_template as template)
 
 from utils import (build_diff_dict, with_same_pattern, get_instrument,
                    INSTRUMENT_CHOICES, FLATS_TO_SHARPS)
@@ -16,13 +16,16 @@ STATIC_DIR = './static'
 def search():
     return template('search.html', title='Chord search', instruments=INSTRUMENT_CHOICES)
 
+
 @get('/reverse')
 def reverse():
     return template('rsearch.html', title='Reverse search', instruments=INSTRUMENT_CHOICES)
 
+
 @get('/theory')
 def links():
     return template('theory.html', title='Chord theory')
+
 
 @get('/search')
 def search():
@@ -30,14 +33,14 @@ def search():
     max_fingers = request.query.get('max_fingers', None)
 
     nchord = chord.lower()
-    nchord = FLATS_TO_SHARPS.get(chord, nchord)
+    nchord = FLATS_TO_SHARPS.get(chord.lower(), nchord)
 
     STRINGS, CHORDS = get_instrument(instrument)
     by_diff = build_diff_dict(CHORDS)
 
     matches = [(n,p) for n,p in CHORDS if any([n.lower()==nchord, n[:len(chord)+1].lower()==nchord+'/'])]
     if max_fingers:
-        matches = [(n,p) for n,p in matches if len(filter(lambda x: x > 0, p)) <= int(max_fingers)]
+        matches = [(n,p) for n,p in matches if len(tuple(filter(lambda x: x > 0, p))) <= int(max_fingers)]
 
     matches = [(n,p,with_same_pattern(p, by_diff)) for n,p in matches]
 
@@ -47,6 +50,7 @@ def search():
                     matches_json=json.dumps(matches), matches=matches,
                     strings_json=json.dumps(STRINGS)
     )
+
 
 @get('/rsearch')
 def rsearch():
