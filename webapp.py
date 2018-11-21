@@ -6,7 +6,7 @@ from bottle import (get, request, run, route, default_app, app, static_file,
                     TEMPLATE_PATH, jinja2_template as template)
 
 from utils import (build_diff_dict, with_same_pattern, get_instrument,
-                   INSTRUMENT_CHOICES, FLATS_TO_SHARPS)
+                   INSTRUMENT_CHOICES, normalize_chord)
 
 TEMPLATE_PATH.append('./templates')
 STATIC_DIR = './static'
@@ -32,8 +32,7 @@ def search():
     instrument, chord = request.query.get('instrument'), request.query.get('chord').strip()
     max_fingers = request.query.get('max_fingers', None)
 
-    nchord = chord.lower()
-    nchord = FLATS_TO_SHARPS.get(chord.lower(), nchord)
+    nchord = normalize_chord(chord.lower())
 
     STRINGS, CHORDS = get_instrument(instrument)
     by_diff = build_diff_dict(CHORDS)

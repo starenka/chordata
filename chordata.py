@@ -5,7 +5,7 @@ from __future__ import print_function
 import argparse
 
 from utils import (render, build_diff_dict, with_same_pattern, get_instrument,
-                   INSTRUMENT_CHOICES, FLATS_TO_SHARPS)
+                   INSTRUMENT_CHOICES, normalize_chord)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='A dummy chordbook')
@@ -26,8 +26,7 @@ if __name__ == '__main__':
     by_diff = build_diff_dict(CHORDS)
 
     for one in args.chords:
-        one = one.lower()
-        one = FLATS_TO_SHARPS.get(one, one)
+        one = normalize_chord(one.lower())
 
         prev = None
         matches = [(n,p) for n,p in CHORDS if any([n.lower()==one, n[:len(one)+1].lower()==one+'/'])]

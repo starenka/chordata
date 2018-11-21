@@ -3,6 +3,7 @@
 
 from __future__ import print_function
 import collections, importlib
+import re
 
 INSTRUMENT_CHOICES = collections.OrderedDict((
     ('uke','ukulele'),
@@ -10,7 +11,15 @@ INSTRUMENT_CHOICES = collections.OrderedDict((
     ('guitardd','guitar (drop d)'),
     ('mando','mandolin')
 ))
-FLATS_TO_SHARPS = {'db':'c#', 'eb':'d#', 'gb':'f#', 'bb': 'a#'}
+FLATS_TO_SHARPS = {
+    'cb': 'b',
+    'db': 'c#',
+    'eb': 'd#',
+    'fb': 'e',
+    'gb': 'f#',
+    'ab': 'g#',
+    'bb': 'a#'
+}
 
 
 def diffs(items):  # -1 for X
@@ -53,3 +62,10 @@ def render(pattern, strings, padd=0):
 def get_instrument(instrument):
     instrument = importlib.import_module(instrument)
     return instrument.STRINGS, instrument.CHORDS
+
+
+def normalize_chord(chord):
+    def _replace(x):
+        return FLATS_TO_SHARPS.get(x.group(0))
+
+    return re.sub(r'[a-g]b', _replace, chord, flags=re.IGNORECASE)
