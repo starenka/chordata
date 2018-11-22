@@ -7,3 +7,5 @@
 .hg
 .hgignore
 tramp
+venv/
+.idea/

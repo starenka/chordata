@@ -77,7 +77,7 @@
     <form action="/search" method="get">
         <label>Find me</label>&nbsp;<input name="chord" value="{{ query|e }}" placeholder="some chord">
         &nbsp;<label>on</label>&nbsp;<select name="instrument">
-          {% for k,v in instruments.iteritems() %}
+          {% for k,v in instruments.items() %}
             <option value="{{ k }}" {% if k == instrument %}selected="selected"{% endif %}>{{ v }}</option><
           {% endfor %}
         </select>&nbsp;
