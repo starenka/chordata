@@ -1,5 +1,6 @@
-bottle==0.12.7
-jinja2==2.7.3
+bottle~=0.12.18
+jinja2~=2.11.1
 
-werkzeug #for debugging localy
-#uwsgi==1.9.18.2  #for running as service
+uwsgi~=2.0.18
+werkzeug
+    

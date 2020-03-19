@@ -6,12 +6,12 @@ import collections
 import importlib
 import re
 
-INSTRUMENT_CHOICES = collections.OrderedDict((
-    ('uke', 'ukulele'),
-    ('guitar', 'guitar'),
-    ('guitardd', 'guitar (drop d)'),
-    ('mando', 'mandolin')
-))
+INSTRUMENT_CHOICES = dict(
+    uke='ukulele',
+    guitar='guitar',
+    guitardd='guitar (drop d)',
+    mando='mandolin')
+
 FLATS_TO_SHARPS = {
     'cb': 'b',
     'db': 'c#',

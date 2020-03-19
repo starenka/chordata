@@ -37,9 +37,11 @@ def search():
     STRINGS, CHORDS = get_instrument(instrument)
     by_diff = build_diff_dict(CHORDS)
 
-    matches = [(n, p) for n, p in CHORDS if any([n.lower() == nchord, n[:len(chord)+1].lower() == nchord+'/'])]
+    matches = [(n, p) for n, p in CHORDS if any([n.lower() == nchord,
+                                                 n[:len(chord)+1].lower() == nchord+'/'])]
     if max_fingers:
-        matches = [(n, p) for n, p in matches if len(tuple(filter(lambda x: x > 0, p))) <= int(max_fingers)]
+        matches = [(n, p) for n, p in matches
+                   if len(tuple(filter(lambda x: x > 0, p))) <= int(max_fingers)]
 
     matches = [(n, p, with_same_pattern(p, by_diff)) for n, p in matches]
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from __future__ import print_function
 import argparse
 
 from utils import render, build_diff_dict, get_instrument, INSTRUMENT_CHOICES
