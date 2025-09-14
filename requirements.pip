@@ -1,6 +1,6 @@
-bottle~=0.12.18
-jinja2~=2.11.1
+bottle~=0.13.4
+jinja2~=3.1.6
 
-uwsgi~=2.0.18
+uwsgi~=2.0.30
 werkzeug
     
